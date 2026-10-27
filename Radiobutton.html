@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RadioButtonDemo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eeeeee;
+        }
+
+        .window {
+            width: 430px;
+            margin: 50px auto;
+            border: 4px solid #1769d2;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 0 10px #888;
+            overflow: hidden;
+        }
+
+        h2 {
+            background: #0866d8;
+            color: white;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            gap: 30px;
+        }
+
+        .options label {
+            display: block;
+            margin: 12px 0;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .pet {
+            font-size: 90px;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        #petName {
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="window">
+    <h2>RadioButtonDemo</h2>
+
+    <div class="content">
+        <div class="options">
+            <label>
+                <input type="radio" name="pet" value="Bird">
+                Bird
+            </label>
+
+            <label>
+                <input type="radio" name="pet" value="Cat">
+                Cat
+            </label>
+
+            <label>
+                <input type="radio" name="pet" value="Dog">
+                Dog
+            </label>
+
+            <label>
+                <input type="radio" name="pet" value="Rabbit">
+                Rabbit
+            </label>
+
+            <label>
+                <input type="radio" name="pet" value="Pig" checked>
+                Pig
+            </label>
+        </div>
+
+        <div>
+            <div class="pet" id="petImage">🐷</div>
+            <div id="petName">Pig</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const pets = {
+        Bird: "🐦",
+        Cat: "🐱",
+        Dog: "🐶",
+        Rabbit: "🐰",
+        Pig: "🐷"
+    };
+
+    document.querySelectorAll('input[name="pet"]')
+        .forEach(function (radio) {
+            radio.addEventListener("change", function () {
+                const selectedPet = this.value;
+
+                document.getElementById("petImage").textContent =
+                    pets[selectedPet];
+
+                document.getElementById("petName").textContent =
+                    selectedPet;
+
+                alert("You selected: " + selectedPet);
+            });
+        });
+</script>
+
+</body>
+</html>
